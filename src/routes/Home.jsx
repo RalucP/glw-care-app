@@ -1,4 +1,4 @@
-import '../categories.scss'
+import '../Home.scss'
 import Categories from '../components/Categories'
 
 const Home = () => {
