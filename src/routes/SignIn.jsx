@@ -9,7 +9,6 @@ const SignIn = () => {
 
   return (
     <>
-      <div>Sign in page</div>
       <button onClick={logGoogleUser}>Sign in with Google Popup</button>
       <SignUpForm />
     </>
