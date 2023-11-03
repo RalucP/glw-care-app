@@ -5,17 +5,17 @@ const BUTTON_TYPE_CLASSES = {
   inverted: 'inverted'
 }
 
-const Button = ({value, buttonType, ...otherProps}) => {
+const Button = ({children, buttonType, ...otherProps}) => {
   return (
     <button 
       className={`button ${BUTTON_TYPE_CLASSES[buttonType] ? BUTTON_TYPE_CLASSES[buttonType] : ''}`}
       {...otherProps}
-    >{value}</button>
+    >{children}</button>
   )
 }
 
 Button.propTypes = {
-  value: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
   buttonType: PropTypes.string,
   otherProps: PropTypes.object
 }

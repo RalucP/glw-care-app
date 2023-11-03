@@ -46,47 +46,45 @@ const SignUpForm = () => {
   }
 
   return (
-    <div className="sign-up-container">
+    <div className="authentication-container">
       <h2>Do not have an account?</h2>
       <span>Sign up with your email and password</span>
       <form onSubmit={handleSubmit}>
-      <FormInput 
-        label="Display Name"
-        type="text" 
-        name='displayName' 
-        onChange={handleTextChange} 
-        value={displayName} 
-        required
-      />
-      <FormInput 
-        label="E-mail"
-        type="email" 
-        name='email' 
-        onChange={handleTextChange} 
-        value={email} 
-        required
-      />
-      <FormInput 
-        label="Password"
-        type="password" 
-        name='password' 
-        onChange={handleTextChange} 
-        value={password} 
-        required
-      />
-      <FormInput 
-        label="Confirmed Password"
-        type="password" 
-        name='confirmedPassword' 
-        onChange={handleTextChange} 
-        value={confirmedPassword} 
-        required
-      />
-
-      <Button 
-        value='Sign up'
-        type='submit'
-      />
+        <FormInput 
+          label="Display Name"
+          type="text" 
+          name='displayName' 
+          onChange={handleTextChange} 
+          value={displayName} 
+          required
+        />
+        <FormInput 
+          label="E-mail"
+          type="email" 
+          name='email' 
+          onChange={handleTextChange} 
+          value={email} 
+          required
+        />
+        <FormInput 
+          label="Password"
+          type="password" 
+          name='password' 
+          onChange={handleTextChange} 
+          value={password} 
+          required
+        />
+        <FormInput 
+          label="Confirmed Password"
+          type="password" 
+          name='confirmedPassword' 
+          onChange={handleTextChange} 
+          value={confirmedPassword} 
+          required
+        />
+        <Button
+          type='submit'
+        >Sign up</Button>
       </form>
     </div>
   )
