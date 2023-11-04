@@ -85,6 +85,7 @@
     & .nav-link{
       color: var(--secondary-color);
       text-transform: uppercase;
+      cursor: pointer;
 
       &:hover{
         opacity: .7;
