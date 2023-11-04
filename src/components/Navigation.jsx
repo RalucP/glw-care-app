@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { signOutUser } from "../utils/firebase";
 import logo  from '../assets/glw-logo.svg'
 import { UserContext } from "../context/UserContext";
+import Cart from './Cart'
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
@@ -22,6 +23,7 @@ const Navigation = () => {
             <Link className="nav-link" to='/authentication'>Sign in</Link>
           )
         }
+        <Cart />
       </div>
     </div>
   )
