@@ -311,3 +311,24 @@
     font-weight: bold;
   }
 }
+
+/***** SHOPPING CART DROPDOWN *****/
+
+.cart-dropdown-container{
+  position: absolute;
+  width: 18rem;
+  height: 27rem;
+  top: 4rem;
+  right: 4rem;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  background-color: var(--primary-color);
+  border: 1px solid var(--secondary-color);
+
+  & button{
+    position: absolute;
+    bottom: 1em;
+    width: 75%;
+  }
+}

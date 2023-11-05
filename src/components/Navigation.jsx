@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import { signOutUser } from "../utils/firebase";
 import logo  from '../assets/glw-logo.svg'
 import { UserContext } from "../context/UserContext";
-import Cart from './Cart'
+import { CartContext } from "../context/CartContext";
+import Cart from './Cart';
+import CartDropdown from "./CartDropdown";
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
+  const { isCartOpen } = useContext(CartContext);
 
   return(
     <div className="nav-container">
@@ -25,6 +28,7 @@ const Navigation = () => {
         }
         <Cart />
       </div>
+      { isCartOpen && <CartDropdown /> }
     </div>
   )
 }
