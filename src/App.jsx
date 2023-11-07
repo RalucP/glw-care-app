@@ -3,6 +3,7 @@ import MainContainer from './routes/MainContainer'
 import Home from './routes/Home'
 import Authentication from './routes/Authentication'
 import Shop from './routes/Shop'
+import Checkout from './routes/Checkout'
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Route path='shop' element={<Shop />} />
         <Route path='authentication' element={<Authentication />} />
         <Route path='contact' element={<div>Contact page</div>} />
+        <Route path='checkout' element={<Checkout />} />
       </Route>
     </Routes> 
   )
