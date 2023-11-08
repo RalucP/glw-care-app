@@ -1,11 +1,12 @@
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import ProductCard from './ProductCard';
 
-const CategoriesPreview = ({ title, products }) => {
+const CategoryPreview = ({ title, products }) => {
   return (
     <div className="categories-preview-container">
       <h2>
-        <span className='title'>{title.toUpperCase()}</span>
+        <Link to={`${title.toLowerCase()}`} className='title'>{title.toUpperCase()}</Link>
       </h2>
       <div className="categories-preview">
         {products
@@ -21,9 +22,9 @@ const CategoriesPreview = ({ title, products }) => {
   )
 }
 
-CategoriesPreview.propTypes = {
+CategoryPreview.propTypes = {
   title: PropTypes.string.isRequired,
   products: PropTypes.array.isRequired,
 }
 
-export default CategoriesPreview;
+export default CategoryPreview;

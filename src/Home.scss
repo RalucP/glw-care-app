@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-.category-container{
+.category-card-container{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -229,6 +229,11 @@
 
   & .title{
     cursor: pointer;
+    color: var(--secondary-color);
+
+    &:hover{
+      opacity: .7;
+    }
   }
 
   & .categories-preview{
@@ -239,6 +244,11 @@
 }
 
 /***** PRODUCT CARD *****/
+
+.title{
+  text-align: center;
+  text-transform: capitalize;
+}
 
 .products-container{
   display: grid;
