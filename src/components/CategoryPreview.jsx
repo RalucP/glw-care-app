@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import ProductCard from './ProductCard';
+import ProductCard from './productCard/ProductCard';
 
 const CategoryPreview = ({ title, products }) => {
   return (

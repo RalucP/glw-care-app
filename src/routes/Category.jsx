@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { CategoriesContext } from '../context/CategoriesContext';
-import ProductCard from '../components/ProductCard';
+import ProductCard from '../components/productCard/ProductCard';
 
 const Category = () => {
   const { category } = useParams();
