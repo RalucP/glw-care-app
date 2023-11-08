@@ -3,7 +3,7 @@ import MainContainer from './routes/MainContainer'
 import Home from './routes/Home'
 import Authentication from './routes/Authentication'
 import Shop from './routes/Shop'
-import Checkout from './routes/Checkout'
+import Checkout from './routes/checkout/Checkout'
 
 const App = () => {
   return (
