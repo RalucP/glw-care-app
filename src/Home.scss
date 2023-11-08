@@ -290,35 +290,6 @@
     & td{
       padding-top: 1em;
       padding-bottom: 1em;
-
-    }
-    
-    & .checkout-image{
-      width: 10em;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-    }
-  
-    & .checkout-product-name{
-      font-size: 1.2em;
-      font-weight: bold;
-    }
-
-    & .checkout-quantity{
-      width: 80%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-around;
-
-      & .arrow{
-        cursor: pointer;
-      }
-    }
-
-    & .checkout-remove{
-      text-align: center;
-      cursor: pointer;
     }
 
     & .checkout-total{

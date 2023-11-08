@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import { useContext } from 'react';
-import { CartContext } from '../context/CartContext';
+import { CartContext } from '../../context/CartContext';
+import { Arrow, CheckoutImage, CheckoutProductName, CheckoutQuantity, CheckoutRemove } from './checkoutItems.styles'
 
 const CheckoutItem = ({ item }) => {
   const {image, name, price, quantity} = item;
@@ -13,18 +14,18 @@ const CheckoutItem = ({ item }) => {
   return(
     <tr>
       <td>
-        <img className="checkout-image" src={image} alt="item image" />
+        <CheckoutImage src={image} alt="item image" />
       </td>
-      <td className="checkout-product-name">{name}</td>
+      <CheckoutProductName>{name}</CheckoutProductName>
       <td>
-        <div className="checkout-quantity">
-          <div className='arrow' onClick={removeItemFromCartHandler}>&#10094;</div>
+        <CheckoutQuantity>
+          <Arrow onClick={removeItemFromCartHandler}>&#10094;</Arrow>
           <span>{quantity}</span>
-          <div className='arrow' onClick={addItemToCartHandler}>&#10095;</div>
-        </div>
+          <Arrow onClick={addItemToCartHandler}>&#10095;</Arrow>
+        </CheckoutQuantity>
       </td>
       <td>{price}</td>
-      <td className="checkout-remove" onClick={clearItemFromCartHandler}>&#10005;</td>
+      <CheckoutRemove onClick={clearItemFromCartHandler}>&#10005;</CheckoutRemove>
     </tr>
   )
 }
