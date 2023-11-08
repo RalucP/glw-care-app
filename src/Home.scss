@@ -220,6 +220,24 @@
   }
 }
 
+/***** CATEGORIES CARD *****/
+
+.categories-preview-container{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3em;
+
+  & .title{
+    cursor: pointer;
+  }
+
+  & .categories-preview{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 1.5em;
+  }
+}
+
 /***** PRODUCT CARD *****/
 
 .products-container{
