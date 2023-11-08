@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import { CategoryBackgroundImage, CategoryBodyContainer, CategoryCardContainer } from "./categoryCard.styles";
 
 const CategoryCard = ({category: {title, imageUrl}}) => {
   
@@ -10,13 +11,13 @@ const CategoryCard = ({category: {title, imageUrl}}) => {
   }
 
   return(
-    <div onClick={() => goToCategory(title)}  className="category-card-container">
-      <div className="background-image" style={{backgroundImage: `url(${imageUrl})`}}></div>
-      <div className="category-body-container">
+    <CategoryCardContainer onClick={() => goToCategory(title)}>
+      <CategoryBackgroundImage style={{backgroundImage: `url(${imageUrl})`}}></CategoryBackgroundImage>
+      <CategoryBodyContainer>
         <h2>{title}</h2>
         <p>Shop Now</p>
-      </div>
-    </div>
+      </CategoryBodyContainer>
+    </CategoryCardContainer>
   )
 }
 

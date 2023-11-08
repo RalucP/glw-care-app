@@ -1,5 +1,5 @@
 import '../Home.scss'
-import Categories from '../components/Categories'
+import Categories from '../components/categories/Categories'
 
 const Home = () => {
   const categories = [

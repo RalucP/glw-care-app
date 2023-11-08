@@ -1,10 +1,11 @@
-import CategoryCard from "./CategoryCard";
+import CategoryCard from "../categoryCard/CategoryCard";
 import PropTypes from 'prop-types';
+import { CategoriesContainer } from "./categories.styles";
 
 const Categories = ({categories}) => {
 
   return (
-    <div className="categories-container">
+    <CategoriesContainer>
       {
         categories.map((category) => {
           const {id} = category;
@@ -16,7 +17,7 @@ const Categories = ({categories}) => {
           )
         })
       }
-    </div>
+    </CategoriesContainer>
   )
 }
 
