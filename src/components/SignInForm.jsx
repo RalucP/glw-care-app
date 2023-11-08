@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from '../utils/firebase'
 import FormInput from "./FormInput"
-import Button from "./Button"
+import Button, { BUTTON_TYPE_CLASSES } from "./button/Button"
 
 const defaultValues = {
   email: '',
@@ -68,7 +68,7 @@ const SignInForm = () => {
             type='submit'
           >Sign in</Button>
           <Button
-            buttonType='google'
+            buttonType={BUTTON_TYPE_CLASSES.google}
             type='button'
             onClick={signInWithGoogle}
           >Google sign in</Button>
