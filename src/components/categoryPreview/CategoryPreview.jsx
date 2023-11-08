@@ -1,14 +1,14 @@
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import ProductCard from './productCard/ProductCard';
+import ProductCard from '../productCard/ProductCard';
+import { CategoriesPreview, CategoryPreviewContainer, Title } from './categoryPreview.styles';
 
 const CategoryPreview = ({ title, products }) => {
   return (
-    <div className="categories-preview-container">
+    <CategoryPreviewContainer>
       <h2>
-        <Link to={`${title.toLowerCase()}`} className='title'>{title.toUpperCase()}</Link>
+        <Title to={`${title.toLowerCase()}`}>{title.toUpperCase()}</Title>
       </h2>
-      <div className="categories-preview">
+      <CategoriesPreview>
         {products
           .filter((_, index) => index < 4)
           .map((product) => (
@@ -17,8 +17,8 @@ const CategoryPreview = ({ title, products }) => {
               product={product} 
             />
           ))}
-      </div>
-    </div>
+      </CategoriesPreview>
+    </CategoryPreviewContainer>
   )
 }
 

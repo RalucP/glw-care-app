@@ -77,29 +77,6 @@
   }
 }
 
-/***** CATEGORIES CARD *****/
-
-.categories-preview-container{
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 3em;
-
-  & .title{
-    cursor: pointer;
-    color: var(--secondary-color);
-
-    &:hover{
-      opacity: .7;
-    }
-  }
-
-  & .categories-preview{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: 1.5em;
-  }
-}
-
 /***** PRODUCT CARD *****/
 
 .title{
