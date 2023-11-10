@@ -9,7 +9,7 @@ import { CartContext } from "../../context/CartContext";
 import { NavigationContainer, LogoContainer, NavLinks, NavLink } from "./navigation.styles";
 
 import Cart from '../Cart';
-import CartDropdown from "../CartDropdown";
+import CartDropdown from "../cartDropdown/CartDropdown";
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
