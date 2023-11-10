@@ -90,28 +90,3 @@
   column-gap: 1.5em;
   row-gap: 3em;
 }
-
-/***** SHOPPING ICON *****/
-
-.cart-icon-container{
-  position: relative;
-  height: 1.5em;
-  width: 1.5em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-
-  & .shopping-icon{
-    height: 100%;
-    object-fit: contain;
-  }
-
-  & .item-count{
-    position: absolute;
-    bottom: .1em;
-    font-size: .7em;
-    font-weight: bold;
-  }
-}
