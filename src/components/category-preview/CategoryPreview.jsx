@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import ProductCard from '../productCard/ProductCard';
-import { CategoriesPreview, CategoryPreviewContainer, Title } from './categoryPreview.styles';
+import ProductCard from '../product-card/ProductCard';
+import { CategoriesPreview, CategoryPreviewContainer, Title } from './CategoryPreview.styles';
 
 const CategoryPreview = ({ title, products }) => {
   return (

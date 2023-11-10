@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
-import MainContainer from './routes/MainContainer'
-import Home from './routes/Home'
-import Authentication from './routes/Authentication'
-import Shop from './routes/Shop'
+import MainContainer from './routes/main-container/MainContainer'
+import Home from './routes/home/Home'
+import Authentication from './routes/authentication/Authentication'
+import Shop from './routes/shop/Shop'
 import Checkout from './routes/checkout/Checkout'
 
 const App = () => {

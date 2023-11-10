@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from '../utils/firebase'
-import FormInput from "./form-input/FormInput"
-import Button, { BUTTON_TYPE_CLASSES } from "./button/Button"
+import { signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from '../../utils/firebase'
+import FormInput from "../form-input/FormInput"
+import Button, { BUTTON_TYPE_CLASSES } from "../button/Button"
 
 const defaultValues = {
   email: '',

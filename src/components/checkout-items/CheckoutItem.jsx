@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
-import { Arrow, CheckoutImage, CheckoutProductName, CheckoutQuantity, CheckoutRemove } from './checkoutItems.styles'
+import { Arrow, CheckoutImage, CheckoutProductName, CheckoutQuantity, CheckoutRemove } from './CheckoutItems.styles'
 
 const CheckoutItem = ({ item }) => {
   const {image, name, price, quantity} = item;

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { CartItemContainer, CartItemDetails, CartItemImage, CartItemInfo, CartItemName } from './cartItem.styles';
+import { CartItemContainer, CartItemDetails, CartItemImage, CartItemInfo, CartItemName } from './CartItem.styles';
 
 const CartItem = ({cartItem}) => {
   const {name, quantity, price, image} = cartItem;

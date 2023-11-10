@@ -1,14 +1,13 @@
 import { useContext, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { CategoriesContext } from '../context/CategoriesContext';
-import ProductCard from '../components/productCard/ProductCard';
+import { CategoriesContext } from '../../context/CategoriesContext';
+import ProductCard from '../../components/product-card/ProductCard';
+import { ProductsContainer, Title } from './Category.styles';
 
 const Category = () => {
   const { category } = useParams();
   const { categoriesMap } = useContext(CategoriesContext);
   const [ products, setProducts ] = useState(categoriesMap[category]);
-
-  console.log(products)
 
   useEffect(() => {
     setProducts(categoriesMap[category]);
@@ -16,8 +15,8 @@ const Category = () => {
   
   return (
     <>
-      <h1 className='title'>{category}</h1>
-      <div className='products-container'>
+      <Title>{category}</Title>
+      <ProductsContainer>
         {
           products && products.map((product) => (
             <ProductCard 
@@ -26,7 +25,7 @@ const Category = () => {
             />
           ))
         }
-      </div>
+      </ProductsContainer>
     </>
   )
 }

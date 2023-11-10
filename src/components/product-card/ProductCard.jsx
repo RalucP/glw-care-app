@@ -7,7 +7,7 @@ import {
   ProductImage, 
   ProductInfo, 
   ProductName, 
-  ProductPrice } from './productCard.styles';
+  ProductPrice } from './ProductCard.styles';
 
 const ProductCard = ({ product }) => {
   const { name, price, image } = product;

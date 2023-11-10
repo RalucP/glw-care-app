@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { BaseButton, GoogleButton, InvertedButton } from './button.styles'
+import { BaseButton, GoogleButton, InvertedButton } from './Button.styles'
 
 export const BUTTON_TYPE_CLASSES = {
   base: 'base',

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
-import { CategoryBackgroundImage, CategoryBodyContainer, CategoryCardContainer } from "./categoryCard.styles";
+import { CategoryBackgroundImage, CategoryBodyContainer, CategoryCardContainer } from "./CategoryCard.styles";
 
 const CategoryCard = ({category: {title, imageUrl}}) => {
   
