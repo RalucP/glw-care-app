@@ -1,5 +1,18 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useReducer } from "react";
+import { createAction } from "../utils/reducer";
 import PropTypes from 'prop-types'
+
+const CART_ACTION_TYPES = {
+  SET_CART_ITEMS: 'SET_CART_ITEMS',
+  SET_IS_CART_OPEN: 'SET_IS_CART_OPEN'
+}
+
+const INITIAL_STATE = {
+  isCartOpen: false,
+  cartItems: [],
+  itemCount: 0,
+  cartTotal: 0
+}
 
 const addCartItem = (cartItems, product) => {
   const found = cartItems.find(item => item.id === product.id);
@@ -42,34 +55,63 @@ export const CartContext = createContext({
   cartTotal: 0,
 });
 
+const CartReducer = (state, action) => {
+  const { type, payload } = action;
+
+  switch(type){
+    case CART_ACTION_TYPES.SET_CART_ITEMS:
+      {
+        return {
+          ...state,
+          ...payload
+        }
+      }
+    case CART_ACTION_TYPES.SET_IS_CART_OPEN:
+      {
+        return {
+          ...state,
+          isCartOpen: payload
+        }
+      }
+    default: 
+    {
+      throw new Error (`Unhandeled action type: ${type} in CartReducer`)
+    }
+  }
+}
+
 export const CartProvider = ({ children }) => {
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
-  const [itemCount, setItemCount] = useState(0);
-  const [cartTotal, setCartTotal] = useState(0);
+  const [ state, dispatch ] = useReducer(CartReducer, INITIAL_STATE);
+  const { isCartOpen, cartItems, itemCount, cartTotal } = state;
 
-  useEffect(() => {
-    const newCount = cartItems.reduce((total, item) => total + item.quantity, 0);
-    setItemCount(newCount)
-  }, [cartItems]);
+  const setIsCartOpen = (bool) => dispatch(createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, bool));
 
-  useEffect(() => {
-    const newCartTotal = cartItems.reduce((total, cartItem) => {
+  const updateCartItemsReducer = (newCartItems) => {
+    const newCount = newCartItems.reduce((total, item) => total + item.quantity, 0);
+    const newCartTotal = newCartItems.reduce((total, cartItem) => {
       return total + (cartItem.price * cartItem.quantity)
     }, 0);
-    setCartTotal(newCartTotal)
-  }, [cartItems]);
+
+    dispatch(createAction(CART_ACTION_TYPES.SET_CART_ITEMS, {
+      cartItems: newCartItems,
+      itemCount: newCount,
+      cartTotal: newCartTotal
+    }))
+  }
   
   const addItemToCart = (product) => {
-    setCartItems(addCartItem(cartItems, product));
+    const newCartItems = addCartItem(cartItems, product);
+    updateCartItemsReducer(newCartItems);
   }
 
   const removeItemFromCart = (product) => {
-    setCartItems(removeCartItem(cartItems, product));
+    const newCartItems = removeCartItem(cartItems, product);
+    updateCartItemsReducer(newCartItems);
   }
 
   const clearItemFromCart = (product) => {
-    setCartItems(clearCartItem(cartItems, product));
+    const newCartItems = clearCartItem(cartItems, product);
+    updateCartItemsReducer(newCartItems);
   }
   
   const value = { 
