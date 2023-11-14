@@ -6,7 +6,7 @@ import logo  from '../../assets/glw-logo.svg'
 import { UserContext } from "../../context/UserContext";
 import { CartContext } from "../../context/CartContext";
 
-import { NavigationContainer, LogoContainer, NavLinks, NavLink } from "./navigation.styles";
+import { NavigationContainer, LogoContainer, NavLinks, NavLink } from "./Navigation.styles";
 
 import Cart from '../Cart/Cart';
 import CartDropdown from "../cart-dropdown/CartDropdown";
