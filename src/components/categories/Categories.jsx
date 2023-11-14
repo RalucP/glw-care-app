@@ -1,5 +1,4 @@
 import CategoryCard from "../category-card/CategoryCard";
-import PropTypes from 'prop-types';
 import { CategoriesContainer } from "./Categories.styles";
 
 const Categories = () => {
@@ -47,10 +46,6 @@ const Categories = () => {
       }
     </CategoriesContainer>
   )
-}
-
-Categories.propTypes = {
-  categories: PropTypes.array.isRequired
 }
 
 export default Categories;
