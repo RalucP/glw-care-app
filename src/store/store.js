@@ -13,7 +13,7 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const middlewares = [logger];
+const middlewares = !import.meta.env.PROD ? [logger] : [];
 
 const composedEnhancers = compose(applyMiddleware(...middlewares));
 
