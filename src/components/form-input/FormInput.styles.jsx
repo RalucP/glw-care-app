@@ -2,9 +2,9 @@ import styled, { css } from "styled-components";
 
 const shrinkLabelStyles = css`
   top: -1em;
-  font-size: .75em;
+  font-size: 0.75em;
   color: var(--secondary-color);
-`
+`;
 
 export const FormLabel = styled.label`
   text-transform: uppercase;
@@ -13,17 +13,17 @@ export const FormLabel = styled.label`
   font-weight: normal;
   position: absolute;
   pointer-events: none;
-  left: .5em;
-  top: .6em;
+  left: 0.5em;
+  top: 0.6em;
   transition: all 300ms ease;
 
-  ${({shrink}) => shrink && shrinkLabelStyles};
-`
+  ${({ shrink }) => shrink && shrinkLabelStyles};
+`;
 
 export const Input = styled.input`
   color: var(--third-color);
   font-size: 1em;
-  padding: .5em;
+  padding: 0.5em;
   display: block;
   width: calc(100% - 1em);
   border: none;
@@ -36,9 +36,8 @@ export const Input = styled.input`
     & ~ ${FormLabel} {
       ${shrinkLabelStyles};
     }
-
   }
-`
+`;
 
 export const FormFieldContainer = styled.div`
   position: relative;
@@ -46,4 +45,4 @@ export const FormFieldContainer = styled.div`
   input[type='password'] {
     letter-spacing: 0.3em;
   }
-`
+`;
