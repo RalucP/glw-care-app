@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { signOutStart } from "../../store/user/user.action";
-
+import { signOutUser } from "../../utils/firebase";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { selectIsCartOpen } from "../../store/cart/cart.selectors";
 import logo  from '../../assets/glw-logo.svg'
@@ -13,12 +12,8 @@ import Cart from '../Cart/Cart';
 import CartDropdown from "../cart-dropdown/CartDropdown";
 
 const Navigation = () => {
-  const dispatch = useDispatch();
-
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
-
-  const signOutUser = () => dispatch(signOutStart());
 
   return(
     <NavigationContainer>
