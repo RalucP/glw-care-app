@@ -1,21 +1,18 @@
 import PropTypes from 'prop-types'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { addItemToCart, clearItemFromCart, removeItemFromCart } from '../../store/cart/cart.action';
-import { selectCartItems } from '../../store/cart/cart.selectors';
+import { addItemToCart, clearItemFromCart, removeItemFromCart } from '../../store/cart/cart.reducer';
 
 import { Arrow, CheckoutImage, CheckoutProductName, CheckoutQuantity, CheckoutRemove } from './CheckoutItems.styles'
 
 const CheckoutItem = ({ item }) => {
   const {image, name, price, quantity} = item;
 
-  const cartItems = useSelector(selectCartItems);
-
   const dispatch = useDispatch();
 
-  const addItemToCartHandler = () => dispatch(addItemToCart(cartItems, item));
-  const clearItemFromCartHandler = () => dispatch(clearItemFromCart(cartItems, item));
-  const removeItemFromCartHandler = () => dispatch(removeItemFromCart(cartItems, item));
+  const addItemToCartHandler = () => dispatch(addItemToCart(item));
+  const clearItemFromCartHandler = () => dispatch(clearItemFromCart(item));
+  const removeItemFromCartHandler = () => dispatch(removeItemFromCart(item));
 
   return(
     <tr>

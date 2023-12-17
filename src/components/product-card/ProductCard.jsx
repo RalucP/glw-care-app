@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { addItemToCart } from '../../store/cart/cart.action';
-import { selectCartItems } from '../../store/cart/cart.selectors';
+import { addItemToCart } from '../../store/cart/cart.reducer';
 
 import Button, { BUTTON_TYPE_CLASSES } from '../button/Button';
 import { 
@@ -14,11 +13,13 @@ import {
 
 const ProductCard = ({ product }) => {
   const { name, price, image } = product;
-  const cartItems = useSelector(selectCartItems);
 
   const dispatch = useDispatch();
 
-  const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
+  const addProductToCart = () => {
+    console.log(product);
+    dispatch(addItemToCart(product));
+  }
 
   return (
     <ProductCardContainer>
