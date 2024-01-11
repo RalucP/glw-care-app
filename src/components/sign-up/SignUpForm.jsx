@@ -37,6 +37,7 @@ const SignUpForm = () => {
       return;
     }
 
+    
     try{
       dispatch(signUpStart(email, password, displayName));
       resetFormFields();

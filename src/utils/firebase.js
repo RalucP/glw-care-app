@@ -61,31 +61,31 @@ export const getCollectionAndDocuments = async () => {
 export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 
-export const createUserDocumentFromAuth = async (userAuth, additionalInfo) => {
-  if(!userAuth) return;
+export const createUserDocumentFromAuth = async ( userAuth, additionalInfo = {} ) => {
+  if (!userAuth) return;
 
   const userDocRef = doc(db, 'users', userAuth.uid);
+
   const userSnapshot = await getDoc(userDocRef);
 
-  if(!userSnapshot.exists()){
+  if (!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
-    const createAt = new Date();
+    const createdAt = new Date();
 
     try {
-      await setDoc(userDocRef, {
-        displayName,
-        email,
-        createAt,
-        ...additionalInfo,
-      });
-    }
-    catch(error){
-      console.log(`error creating the user: ${error.message}`);
+        await setDoc(userDocRef, {
+          displayName,
+          email,
+          createdAt,
+          ...additionalInfo,
+        });
+    } catch (error) {
+      console.log('error creating the user', error.message);
     }
   }
 
   return userSnapshot;
-}
+};
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if(!email || !password) return;
