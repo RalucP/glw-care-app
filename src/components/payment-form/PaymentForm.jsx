@@ -1,13 +1,13 @@
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import Button, { BUTTON_TYPE_CLASSES }  from "../button/Button";
+
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import { selectCartTotal } from "../../store/cart/cart.selectors";
 import { selectCurrentUser } from "../../store/user/user.selector";
 
-import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import Button, { BUTTON_TYPE_CLASSES } from "../button/Button";
-
-import { PaymentContainer, FormContainer } from "./PaymentForm.styles";
+import { PaymentContainer, FormContainer } from "./PaymentForm.stryle";
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -16,8 +16,8 @@ const PaymentForm = () => {
   const currentUser = useSelector(selectCurrentUser);
   const [ isProcessingPayment, setIsProcessingPayment ] = useState(false);
 
-  const paymentHandler = async (e) => {
-    e.preventDefault();
+  const paymentHandler = async (event) => {
+    event.preventDefault();
 
     if(!stripe || !elements) return;
 
@@ -40,12 +40,16 @@ const PaymentForm = () => {
           name: currentUser ? currentUser.displayName : 'Guest'
         }
       }
-    });
+    })
 
     setIsProcessingPayment(false);
 
-    if(paymentResult.error) alert(paymentResult.error.message);
-    else if(paymentResult.paymentIntent.status === 'succeeded') alert('Payment successfull!');
+    if(paymentResult.error) {
+      alert(paymentResult.error);
+    }
+    else if(paymentResult.paymentIntent.status === 'succeeded'){
+        alert('Payment successfull!');
+    }
   }
 
   return (

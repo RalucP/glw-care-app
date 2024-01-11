@@ -1,31 +1,28 @@
-require('dotenv').config();
+require("dotenv").config();
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
-/**
- * @type {import('@netlify/functions').Handler}
- */
 exports.handler = async (event) => {
-  try{
-    const { amount } = JSON.parse(event.body);
+  try {
+    const { amount } =  JSON.parse(event.body);
 
     const paymentIntent = await stripe.paymentIntents.create({
       amount,
-      currency: 'sek',
-      payment_method_types: ['card']
-    })
+      currency: "sek",
+      payment_method_types: ["card"]
+    });
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ paymentIntent }),
-    };
+      body: JSON.stringify({paymentIntent}),
+    }
   }
   catch (error) {
-    console.log({ error });
+    console.log({error});
 
     return {
       statusCode: 400,
-      body: JSON.stringify({ error }),
-    };
+      body: JSON.stringify({error}),
+    }
   }
 }
