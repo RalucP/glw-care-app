@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../store/cart/cart.selectors";
 import { selectCurrentUser } from "../../store/user/user.selector";
 
-import { PaymentContainer, FormContainer } from "./PaymentForm.stryle";
+import { PaymentContainer, FormContainer } from "./PaymentForm.styles";
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -48,7 +48,7 @@ const PaymentForm = () => {
       alert(paymentResult.error);
     }
     else if(paymentResult.paymentIntent.status === 'succeeded'){
-        alert('Payment successfull!');
+        alert('Payment successful!');
     }
   }
 

@@ -1,10 +1,28 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { compose, createStore, applyMiddleware } from "redux";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 import logger from "redux-logger";
-import { rootReducer } from './root-reducer';
+import createSagaMiddleware from 'redux-saga';
 
-const middlewares = !import.meta.env.PROD ? [logger] : [];
+import { rootSaga } from "./root-saga";
+import { rootReducer } from "./root-reducer";
 
-export const store = configureStore({
-  reducer: rootReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(middlewares)
-});
+const persistConfig = {
+  key: 'root',
+  storage, 
+  whitelist: ['cart'],
+}
+
+const sagaMiddleware = createSagaMiddleware();
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const middlewares = !import.meta.env.PROD ? [logger, sagaMiddleware] : [sagaMiddleware];
+
+const composedEnhancers = compose(applyMiddleware(...middlewares));
+
+export const store = createStore(persistedReducer, undefined, composedEnhancers);
+
+sagaMiddleware.run(rootSaga);
+
+export const persistor = persistStore(store);
