@@ -22,6 +22,20 @@ export const CategoryBodyContainer = styled.div`
   p{
     font-size: 1.1em;
   }
+
+  @media screen and (max-width: 800px) {
+
+    padding: .5em 1.1em;
+
+    h2{
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    p{
+      font-size: .8em;
+    }
+  }
 `
 
 export const CategoryCardContainer = styled.div`
@@ -48,5 +62,9 @@ export const CategoryCardContainer = styled.div`
       opacity: .6;
       transition: all .5s ease;
     }
+  }
+
+  @media screen and (max-width: 800px) {
+    height: 12em;
   }
 `

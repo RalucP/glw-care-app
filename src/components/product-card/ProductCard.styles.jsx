@@ -28,6 +28,27 @@ export const ProductCardContainer = styled.div`
       display: block;
     }
   }
+
+  @media screen and (max-width: 800px){
+    width: 90dvw;
+    padding: 1.5em 0;
+
+    button{
+      display: block;
+      opacity: .9;
+      min-width: unset;
+      
+      &:hover{
+        img{
+          opacity: unset;
+        }
+
+        button{
+          opacity: unset;
+        }
+      }
+    }
+  }
 `
 
 export const ProductImage = styled.img`

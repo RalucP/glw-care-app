@@ -18,6 +18,10 @@ export const NavLinks = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 20%;
+
+  @media screen and (max-width: 800px){
+    width: 100%;
+  }
 `
 
 export const NavLink = styled(Link)`

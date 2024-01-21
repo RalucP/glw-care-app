@@ -20,4 +20,8 @@ export const CategoriesPreview = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 1.5em;
+
+  @media screen and (max-width: 800px){
+    grid-template-columns: repeat(1, 1fr);
+  }
 `

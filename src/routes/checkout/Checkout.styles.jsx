@@ -4,6 +4,10 @@ export const CheckoutContainer = styled.table`
   width: 80%;
   margin: 5em auto;
   border-collapse: collapse;
+
+  @media screen and (max-width: 800px) {
+    width: 95%;
+  }
 `
 
 export const CheckoutHead = styled.thead`
@@ -11,6 +15,10 @@ export const CheckoutHead = styled.thead`
 
   & td{
     padding-bottom: 2em;
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: .75em;
   }
 `
 

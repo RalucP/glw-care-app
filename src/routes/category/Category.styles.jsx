@@ -5,6 +5,11 @@ export const ProductsContainer = styled.div`
   grid-template-columns: repeat(4, 1fr);
   column-gap: 1.5em;
   row-gap: 3em;
+  
+  @media screen and (max-width: 800px){
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 0;
+  }
 `
 
 export const Title = styled.h1`

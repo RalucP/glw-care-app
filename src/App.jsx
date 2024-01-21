@@ -1,13 +1,16 @@
 import { Routes, Route } from 'react-router-dom'
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { useDispatch } from 'react-redux';
 
-import MainContainer from './routes/main-container/MainContainer'
-import Home from './routes/home/Home'
-import Authentication from './routes/authentication/Authentication'
-import Shop from './routes/shop/Shop'
-import Checkout from './routes/checkout/Checkout'
+import Spinner from './components/spinner/Spinner';
 import { checkUserSession } from './store/user/user.action';
+import { GlobalStyle } from './global.styles';
+
+const MainContainer = lazy(() => import('./routes/main-container/MainContainer'));
+const Home = lazy(() => import('./routes/home/Home'));
+const Authentication = lazy(() => import('./routes/authentication/Authentication'));
+const Shop = lazy(() => import('./routes/shop/Shop'));
+const Checkout = lazy(() => import('./routes/checkout/Checkout'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -17,15 +20,17 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <Routes>
-      <Route path='/' element={<MainContainer />}>
-        <Route index element={<Home />} />
-        <Route path='shop/*' element={<Shop />} />
-        <Route path='authentication' element={<Authentication />} />
-        <Route path='contact' element={<div>Contact page</div>} />
-        <Route path='checkout' element={<Checkout />} />
-      </Route>
-    </Routes> 
+    <Suspense fallback={<Spinner />}>
+      <GlobalStyle />
+      <Routes>
+        <Route path='/' element={<MainContainer />}>
+          <Route index element={<Home />} />
+          <Route path='shop/*' element={<Shop />} />
+          <Route path='authentication' element={<Authentication />} />
+          <Route path='checkout' element={<Checkout />} />
+        </Route>
+      </Routes> 
+    </Suspense>
   )
 }
 

@@ -22,4 +22,14 @@
     }
   }
 
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    margin: 0;
+
+    .authentication-container{
+      width: 90%;
+      padding: 2em 0;
+    }
+  }
+
 }

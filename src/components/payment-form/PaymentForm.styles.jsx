@@ -15,4 +15,8 @@ export const FormContainer = styled.form`
   button{
     margin: 2em 4em;
   }
+
+  @media screen and (max-width: 800px) {
+    min-width: 25em;
+  }
 `
