@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { SpinnerContainer } from '../spinner/Spinner.styles';
 
 export const BaseButton = styled.button`
-  background-color: var(--secondary-color);
+  background-color: black;
   color: var(--primary-color);
   text-transform: uppercase;
   font-size: .9em;
@@ -26,7 +26,7 @@ export const BaseButton = styled.button`
 `
 
 export const GoogleButton = styled(BaseButton)`
-  background-color: #4285f4;
+  background-color: #4285F4;
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
 
@@ -38,7 +38,7 @@ export const GoogleButton = styled(BaseButton)`
 `
 
 export const InvertedButton = styled(BaseButton)`
-  background-color: var(--primary-color);
+  background-color: white;
   color: var(--secondary-color);
   border: 1px solid var(--secondary-color);
 
