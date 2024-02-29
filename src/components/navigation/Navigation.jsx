@@ -7,7 +7,7 @@ import logo  from '../../assets/glw-logo.svg'
 
 import { NavigationContainer, LogoContainer, NavLinks, NavLink } from "./Navigation.styles";
 
-import Cart from '../Cart/Cart';
+import Cart from '../cart/Cart';
 import CartDropdown from "../cart-dropdown/CartDropdown";
 import { signOutStart } from "../../store/user/user.action";
 
