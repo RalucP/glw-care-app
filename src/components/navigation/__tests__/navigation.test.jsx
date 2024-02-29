@@ -1,12 +1,23 @@
 import { screen, cleanup, fireEvent } from "@testing-library/react";
-import { describe, test, expect, beforeEach } from "vitest";
+import { describe, test, expect, beforeEach, vi } from "vitest";
+import * as reactRedux from 'react-redux';
 
 import Navigation from "../Navigation";
 import { renderWithProvider } from "../../../utils/test/test.utils";
+import { signOutStart } from "../../../store/user/user.action";
 
 describe('navigation tests', () => {
   beforeEach(() => {
     cleanup();
+  });
+
+  vi.mock('react-redux', async () => {
+    const mod = await vi.importActual('react-redux');
+
+    return {
+      ...mod,
+      useDispatch: vi.fn()
+    }
   });
 
   test('it should render a sign in link if there is no current user', () => {
@@ -69,5 +80,30 @@ describe('navigation tests', () => {
 
     const cartDropDownElement = screen.queryByText(/your cart is empty/i);
     expect(cartDropDownElement).toBeNull();
+  });
+
+  test('It should dispatch signOutStart action when clicking on the Sign Out link', async () => {
+    const mockDispatch = vi.fn();
+
+    vi.mocked(reactRedux.useDispatch).mockReturnValue(mockDispatch);
+
+    renderWithProvider(<Navigation />, {
+      preloadedState: {
+        user: {
+          currentUser: {},
+        },
+      },
+    });
+
+    const signOutLinkElement = screen.getByText(/sign out/i);
+
+    expect(signOutLinkElement).toBeTruthy();
+
+    await fireEvent.click(signOutLinkElement);
+
+    expect(mockDispatch).toHaveBeenCalled();
+    expect(mockDispatch).toHaveBeenCalledWith(signOutStart());
+
+    mockDispatch.mockClear();
   });
 });
