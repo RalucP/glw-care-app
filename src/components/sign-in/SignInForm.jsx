@@ -23,7 +23,7 @@ const SignInForm = () => {
 
   const handleTextChange = (event) => {
     const { name, value } = event.target;
-
+    
     setFormFields({...formFields, [name]: value});
   }
 
@@ -54,6 +54,7 @@ const SignInForm = () => {
         <FormInput 
           label="Email"
           type='email'
+          id='email'
           name='email'
           value={email}
           onChange={handleTextChange}
@@ -62,6 +63,7 @@ const SignInForm = () => {
         <FormInput 
           label="Password"
           type='password'
+          id='password'
           name='password'
           value={password}
           onChange={handleTextChange}
