@@ -55,6 +55,7 @@ const SignUpForm = () => {
           label="Display Name"
           type="text" 
           name='displayName' 
+          id='displayName'
           onChange={handleTextChange} 
           value={displayName} 
           required
@@ -63,6 +64,7 @@ const SignUpForm = () => {
           label="E-mail"
           type="email" 
           name='email' 
+          id='email'
           onChange={handleTextChange} 
           value={email} 
           required
@@ -71,6 +73,7 @@ const SignUpForm = () => {
           label="Password"
           type="password" 
           name='password' 
+          id='password'
           onChange={handleTextChange} 
           value={password} 
           required
@@ -79,6 +82,7 @@ const SignUpForm = () => {
           label="Confirmed Password"
           type="password" 
           name='confirmedPassword' 
+          id='confirmedPassword'
           onChange={handleTextChange} 
           value={confirmedPassword} 
           required
